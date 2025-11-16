@@ -7,7 +7,6 @@ mt:
   blank_symbol: B
 
   transitions:
-
     - state: q0
       read: a
       write: b
@@ -27,7 +26,8 @@ mt:
       next: q_accept
 
 inputs:
-  - "aaaaa"     
-  - "aaaab"     
-  - "ababab"   
-  - "bbabb"     
+  - "aaaaa"
+  - "aaaab"
+  - "ababab"
+  - "bbabb"
+   

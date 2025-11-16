@@ -33,9 +33,7 @@ class Parser:
 
     @staticmethod
     def _parse_machine_config(mt_data: Dict[str, Any], inputs: List[str] | None) -> MachineConfig:
-        """
-        Convierte el diccionario de la sección 'mt' en un MachineConfig.
-        """
+    
         required_keys = {
             "states",
             "input_alphabet",

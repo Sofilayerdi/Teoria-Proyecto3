@@ -1,9 +1,9 @@
 mt:
-  states: [q0, q1, q2, q_accept, q_reject]
+  states: [q0, q1, q2, q3, q4, q5, qaccept, qreject]
   input_alphabet: [a, b]
-  tape_alphabet: [a, b, X, Y, B]
+  tape_alphabet: [a, b, X, B]
   initial_state: q0
-  accept_states: [q_accept]
+  accept_states: [qaccept]
   blank_symbol: B
 
   transitions:
@@ -12,95 +12,117 @@ mt:
       write: X
       move: R
       next: q1
-
+    
+    - state: q0
+      read: b
+      write: X
+      move: R
+      next: q3
+    
     - state: q0
       read: X
       write: X
       move: R
       next: q0
-
-    - state: q0
-      read: Y
-      write: Y
-      move: R
-      next: q0
-
-    - state: q0
-      read: b
-      write: b
-      move: S
-      next: q_reject
-
+    
     - state: q0
       read: B
       write: B
-      move: S
-      next: q_accept
-
-
+      move: L
+      next: q5
+    
     - state: q1
       read: a
       write: a
       move: R
       next: q1
-
+    
     - state: q1
       read: X
       write: X
       move: R
       next: q1
-
-    - state: q1
-      read: Y
-      write: Y
-      move: R
-      next: q1
-
+    
     - state: q1
       read: b
-      write: Y
+      write: X
       move: L
       next: q2
-
+    
     - state: q1
       read: B
       write: B
       move: S
-      next: q_reject
-
-
+      next: qreject
+    
     - state: q2
-      read: a
-      write: a
+      read: [a, b, X]
+      write: [a, b, X]
       move: L
       next: q2
-
-    - state: q2
-      read: b
-      write: b
-      move: L
-      next: q2
-
-    - state: q2
-      read: X
-      write: X
-      move: L
-      next: q2
-
-    - state: q2
-      read: Y
-      write: Y
-      move: L
-      next: q2
-
+    
     - state: q2
       read: B
       write: B
       move: R
       next: q0
+    
+    - state: q3
+      read: b
+      write: b
+      move: R
+      next: q3
+    
+    - state: q3
+      read: X
+      write: X
+      move: R
+      next: q3
+    
+    - state: q3
+      read: a
+      write: X
+      move: L
+      next: q2
+    
+    - state: q3
+      read: B
+      write: B
+      move: S
+      next: qreject
+    
+    - state: q5
+      read: X
+      write: X
+      move: L
+      next: q5
+    
+    - state: q5
+      read: B
+      write: B
+      move: R
+      next: q4
+    
+    - state: q4
+      read: X
+      write: X
+      move: R
+      next: q4
+    
+    - state: q4
+      read: B
+      write: B
+      move: S
+      next: qaccept
+    
+    - state: q4
+      read: [a, b]
+      write: [a, b]
+      move: S
+      next: qreject
 
 inputs:
-  - "aaabbb"    
-  - "aaaabbbb"   
-  - "aaabb"      
-  - "aabbb"      
+  - "bbaaba"      
+  - "babababababa"      
+  - "abbbb"       
+  - "aabbbaaa"     
