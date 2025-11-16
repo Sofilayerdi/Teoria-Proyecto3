@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from typing import Dict, Iterable, List, Optional, Tuple  
 
-from .instant_description import InstantDescription  # Representa cada paso (ID)
-from .machine_config import MachineConfig            # Configuracion completa de la MT
-from .state import State                             # Clase para modelar estados internamente
-from .transition import Transition                   # Transiciones 
+from instant_description import InstantDescription  # Representa cada paso (ID)
+from machine_config import MachineConfig            # Configuracion completa de la MT
+from state import State                             # Clase para modelar estados internamente
+from transition import Transition                   # Transiciones 
 
 
 class Machine:

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field  
 from typing import Iterable, List, Optional 
 
-from .transition import Transition
+from transition import Transition
 
 
 def _copy_str_list(values: Iterable[str], field_name: str) -> list[str]:

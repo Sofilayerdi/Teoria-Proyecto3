@@ -1,0 +1,33 @@
+mt:
+  states: [q0, q_accept]
+  input_alphabet: [a, b]
+  tape_alphabet: [a, b, B]
+  initial_state: q0
+  accept_states: [q_accept]
+  blank_symbol: B
+
+  transitions:
+
+    - state: q0
+      read: a
+      write: b
+      move: R
+      next: q0
+
+    - state: q0
+      read: b
+      write: a
+      move: R
+      next: q0
+
+    - state: q0
+      read: B
+      write: B
+      move: S
+      next: q_accept
+
+inputs:
+  - "aaaaa"     
+  - "aaaab"     
+  - "ababab"   
+  - "bbabb"     
